@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amor da minha vida</title>
+    <link href="../CSS/stylesum.css" rel="stylesheet">
+   
+</head>
+
+<body>
+    <img src="../Assets/imagem-amor.jpg" alt="">
+    <div id= "box-timer"> 
+        <span class = "box-timer" id= "horas">00</span>
+        <span class = "box-timer">:</span>
+        <span class = "box-timer" id="minutos">00</span>
+        <span class = "box-timer">:</span>
+        <span class = "box-timer" id= "segundos">00</span>
+        <span class = "box-timer">:</span>
+        <span class = "box-timer " id= "mili">00</span>
+    </div>
+    <div id= "box-botton">
+        <button class= "botton" id= "start">Start</button>
+        <button class= "botton" id= "stop">Stop</button>
+        <button class= "botton" id= "reset">Reset</button>
+    </div>
+
+</body>
+<script>
+let btnstart = document.getElementById("start")
+let btnstop = document.getElementById("stop")
+let btnreset = document.getElementById("reset")
+let mili = document.getElementById("mili")
+let segundos = document.getElementById("segundos")
+let minutos = document.getElementById("minutos")
+let horas = document.getElementById("horas")
+
+let starttime
+let ms = "00"
+let seg = "00"
+let min = "00"
+let hr = "00"
+
+function start (){
+
+    starttime = setInterval(() => {
+        ms ++
+    if (ms == 100){
+        seg ++
+    if(seg < 10){
+        seg = "0" + seg
+        }
+        ms = 0 
+    }
+    if (seg == 60){
+        min ++
+    if (min < 10){
+        min = "0" + min
+    }
+        seg = 0 
+    }
+    if (min == 60){
+        hr ++
+    if (hr < 10){
+        hr = "0" + hr 
+         }
+        min = 0 
+    }
+
+btnstart.classList.add("ativo")
+btnstop.classList.remove("ativo")
+
+
+    atualizavalor ()
+  }, 10);
+}
+
+function stop (){
+clearInterval(starttime)
+
+btnstop.classList.add("ativo")
+btnstart.classList.remove("ativo")
+
+}
+
+function reset (){
+    clearInterval (starttime)
+    ms = "00"
+    seg = "00"
+    min = "00"
+    hr = "00"
+    atualizavalor ()
+    btnstart.classList.remove("ativo")
+    btnstop.classList.remove("ativo")
+}
+
+function atualizavalor (){
+    mili.innerHTML = ms
+    segundos.innerHTML = seg
+    minutos.innerHTML = min
+    horas.innerHTML = hr
+}
+
+btnstart.addEventListener("click", start )
+btnstop.addEventListener("click", stop )
+btnreset.addEventListener("click", reset )
+
+</script>
+
+</html>

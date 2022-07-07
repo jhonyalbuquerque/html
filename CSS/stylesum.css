@@ -1,0 +1,51 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+body{
+    background: rgb(34, 0, 202);
+}
+img {
+height: 550px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+#box-timer{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 340px;
+    background: rgb(255, 255, 255);
+    border-radius: 6px;
+    padding-left: 35px ;
+}
+.box-timer{
+text-align: center;
+font-weight: 600px;
+font-size: 50px ;
+}
+
+#box-botton{
+    margin-top:20px;
+    text-align: center;
+}
+
+.botton{
+color: aqua;
+background: rgb(250, 251, 252);
+padding: 6px  16px ;
+border: none;
+cursor: pointer;
+border-radius: 4px;
+}
+
+.ativo{
+    opacity: 0.5;
+}
+
+
+
+
